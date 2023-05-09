@@ -4,8 +4,148 @@
 #Also implement a slice method, which will take two parameters `start` and `stop`,
 # and return a copy of the list starting at the position and going up to but not including the stop position
 
+
+class Node:
+    def __init__(self, initdata):
+        self.data = initdata
+        self.next = None
+
+    def getData(self):
+        return self.data
+
+    def getNext(self):
+        return self.next
+
+    def setData(self, newdata):
+        self.data = newdata
+
+    def setNext(self, newnext):
+        self.next = newnext
+
+
+class UnorderedList:
+    def __init__(self):
+        self.head = None
+
+    def isEmpty(self):
+        return self.head is None
+
+    def add(self, item):
+        temp = Node(item)
+        temp.setNext(self.head)
+        self.head = temp
+
+    def size(self):
+        current = self.head
+        count = 0
+        while current is not None:
+            count = count + 1
+            current = current.getNext()
+        return count
+
+    def search(self, item):
+        current = self.head
+        found = False
+        while current is not None and not found:
+            if current.getData() == item:
+                found = True
+            else:
+                current = current.getNext()
+        return found
+
+    def remove(self, item):
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if current.getData() == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+
+        if previous is None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
+
+    def append(self, item):
+        temp = Node(item)
+        current = self.head
+        if current is None:
+            self.head = temp
+        else:
+            while current.getNext() is not None:
+                current = current.getNext()
+            current.setNext(temp)
+
+    def index(self, item):
+        current = self.head
+        found = False
+        index = 0
+        while current is not None and not found:
+            index += 1
+            if current.getData() == item:
+                found = True
+            else:
+                current = current.getNext()
+        if found:
+            return index - 1
+        else:
+            raise ValueError(f"{item} not found in list")
+
+    def pop(self, pos=None):
+        if pos is None:
+            pos = self.size() - 1
+        if pos < 0 or pos >= self.size():
+            raise IndexError("list index out of range")
+
+        current = self.head
+        previous = None
+        index = 0
+        while index != pos:
+            previous = current
+            current = current.getNext()
+            index += 1
+
+        if previous is None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
+
+        return current.getData()
+
+    def insert(self, pos, item):
+        if pos < 0 or pos > self.size():
+            raise IndexError("list index out of range")
+
+        temp = Node(item)
+        current = self.head
+        previous = None
+        index = 0
+        while index != pos:
+            previous = current
+            current = current.getNext()
+            index += 1
+
+        if previous is None:
+            self.head = temp
+        else:
+            previous.setNext(temp)
+        temp.setNext(current)
+
+    def slice(self, start, stop):
+        if start < 0 or stop < 0 or start >= self.size() or stop > self.size():
+            raise IndexError("list index out of range")
+
+        sublist
+
+
+
+
+
 #Task 2
-#Implement a stack using a singly linked list.
+# a stack using a singly linked list.
 
 
 #Task 3
