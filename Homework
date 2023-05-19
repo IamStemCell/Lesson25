@@ -187,3 +187,47 @@ print(q)
 a.pop_()
 
 print(q)
+
+
+#Task3
+#Implement a queue using a singly linked list.
+
+from Lesson25task1.py import*
+
+class Queue:
+
+    def__init__(self):
+
+        self._items = UnorderedList()
+
+    def enqueue(self, item):
+
+        self._itmes.insert(0, item)
+
+    def dequeue(self):
+
+        return self._items.pop()
+
+    def size(self):
+
+        return self._items.size()
+
+    def __str__(self):
+
+        return str(self._items)
+
+m = Queue()
+
+m.enqueue(5)
+
+m.enqueue(12)
+
+m.enqueue(21)
+
+print(m)
+
+m.dequeue()
+
+print(m)
+
+
