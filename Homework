@@ -3,6 +3,7 @@
 #Also implement a slice method, which will take two parameters `start` and `stop`,
 # and return a copy of the list starting at the position and going up to but not including the stop position
 
+Lesson25task1.py
 
 class Node:
     def __init__(self, initdata):
@@ -138,7 +139,51 @@ class UnorderedList:
             raise IndexError("list index out of range")
 
         sublist
+        
+if __name__=='__main__'
+un_list=UnorderedList()
 
 
 
+#Task 2
 
+#Implement a stack using a singly linked list.
+from Lesson25task1.py import*
+
+class Stack:
+
+    def __init__(self):
+
+        self._items = UnorderedList() #creates empty linked list
+
+    def push(self, data):
+
+        self._items.append(data)
+
+    def pop_(self):
+
+        return self._items.pop()
+
+    
+
+    def size(self):
+
+        return self._items.size()
+
+    def __str__(self):
+
+        return str(self._items)
+
+q = Stack()
+
+q.push(7)
+
+q.push(34)
+
+q.push(144)
+
+print(q)
+
+a.pop_()
+
+print(q)
